@@ -2,6 +2,7 @@
 // src/Controller/BlogController.php
 namespace App\Controller;
 
+use App\Service\MailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,15 +10,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/blog",name="Blog",methods=["GET"])
+     * @Route("/blog",name="Blog",methods={"GET"})
      */
-    public function list():Response
+    public function list(MailService $mailService):Response
     {
-        return $this->render("hello/index.html.twig",[
-            "controller_name"=>"tt"
+        return $this->render("hello/index.html.twig",
+        [
+            "controller_name"=>$mailService->sendMail()
         ]) ;
-        //return $this->redirectToRoute()
-        // return Response::create();
-        //@Route("/tasks/create",name)
     }
 }
