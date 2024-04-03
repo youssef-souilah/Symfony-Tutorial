@@ -23,5 +23,8 @@ services:
     App\Service\MailService:
         arguments:
             $adminEmail: '%admin_email%'
+    App\EventListener\BasketProductAddedListener:
+        tags:
+            - { name: kernel.event_listener, event: App\Event\BasketProductAdded, method: doSomething, priority: 10}
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
