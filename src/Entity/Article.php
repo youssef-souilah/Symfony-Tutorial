@@ -6,22 +6,30 @@
 class Article 
 { 
  
+    
+
+
+
     /**
-    * @Assert\Length(
-    * min = 10,
-    * max = 70,
-    * minMessage= "Ce titre est trop court",
-    * maxMessage= "Ce titre est trop long"
-    * )
-    */
+     * @Assert\NotBlank(message = "Le contenu ne peut être vide.")
+     * @Assert\Length(
+     * min=3,
+     * max=10,
+     * minMessage="ce titre est court",
+     * maxMessage="ce titre est long"
+     * )
+     */
  private$title; 
- /**
-  * @Assert\NotBlank(message = "Le contenu ne peut être vide.")
-  */
+
+  /**
+   * @Assert\NotBlank(message = "Le contenu ne peut être vide.")
+   * 
+   */
   private$content; 
- /**
-  * @Assert\NotBlank(message = "Un auteur doit être associé à l'article")
-  */
+  /**
+   * @Assert\NotBlank(message = "Un auteur doit être associé à l'article")
+   */
+ 
   private$author; 
 public function getAuthor() 
 { 

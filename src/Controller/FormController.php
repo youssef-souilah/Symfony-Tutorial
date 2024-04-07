@@ -18,17 +18,17 @@ class FormController extends AbstractController{
  public function new(Request $request) 
 { 
     $article=new Article(); 
-    $validator=Validation::createValidator(); 
-    $violations=$validator->validate($article, [ 
-        new Length(['min'=>10]), 
-        new NotBlank(), 
-    ]); 
-    if(0!==count($violations)) { 
-        // Affiche les erreurs
-        foreach($violations as $violation) { 
-            echo$violation->getMessage().'<br>'; 
-        } 
-    } 
+    // $validator=Validation::createValidator(); 
+    // $violations=$validator->validate($article, [ 
+    //     new Length(['min'=>10]), 
+    //     new NotBlank(), 
+    // ]); 
+    // if(0!==count($violations)) { 
+    //     // Affiche les erreurs
+    //     foreach($violations as $violation) { 
+    //         echo$violation->getMessage().'<br>'; 
+    //     } 
+    // } 
     $form=$this->createForm(ArticleType::class, $article); 
     $form->handleRequest($request); 
     if($form->isSubmitted() &&$form->isValid()) { 
