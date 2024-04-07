@@ -34,4 +34,11 @@
 
     {%set somePrice=10.7567%}
     {{somePrice|price(2) }}{# "10.75€" #}
+
+
+    {# macros #}   
+     
+ {%import'macros/alerts.html.twig'as utils%}
+ {{utils.alert('Attention!','warning') }}
+ {{utils.alert('Erreur fatale!','danger') }}
 {% endblock %}
