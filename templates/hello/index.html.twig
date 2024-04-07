@@ -31,4 +31,7 @@
     
     {{article.titre}}{# "Etendre Twig" #}
     {{article.contenu}}{# "Il est possible ..." #}
+
+    {%set somePrice=10.7567%}
+    {{somePrice|price(2) }}{# "10.75€" #}
 {% endblock %}
